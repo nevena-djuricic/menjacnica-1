@@ -29,7 +29,6 @@ public class GUIKontroler {
 		});
 	}
 	
-	// radi
 	public static void ugasiAplikaciju() {
 		int opcija = JOptionPane.showConfirmDialog(glavniProzor.getContentPane(),
 				"Da li ZAISTA zelite da izadjete iz apliacije", "Izlazak",
@@ -39,14 +38,12 @@ public class GUIKontroler {
 			System.exit(0);
 	}
 	
-	// radi
 	public static void prikaziDodajKursGUI() {
 		DodajKursGUI prozor = new DodajKursGUI();
 		prozor.setLocationRelativeTo(glavniProzor.getContentPane());
 		prozor.setVisible(true);
 	}
 	
-	// ne poziva se jer ne mogu da Dodam kurs
 	public static void prikaziObrisiKursGUI(Valuta valuta) {
 		if (valuta != null) {
 			ObrisiKursGUI prozor = new ObrisiKursGUI(valuta);
@@ -55,7 +52,6 @@ public class GUIKontroler {
 		}
 	}
 
-	// ne poziva se jer ne mogu da Dodam kurs
 	public static void prikaziIzvrsiZamenuGUI(Valuta valuta) {
 		if (valuta != null) {
 			IzvrsiZamenuGUI prozor = new IzvrsiZamenuGUI(valuta);
@@ -64,14 +60,12 @@ public class GUIKontroler {
 		}
 	}
 	
-	// radi
 	public static void prikaziAboutProzor(){
 		JOptionPane.showMessageDialog(glavniProzor.getContentPane(),
 				"Autor: Bojan Tomic, Verzija 1.0", "O programu Menjacnica",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	// baca praznu gresku
 	public static void sacuvajUFajl() {
 		try {
 			JFileChooser fc = new JFileChooser();
@@ -88,7 +82,6 @@ public class GUIKontroler {
 		}
 	}
 	
-	// baca praznu gresku
 	public static void ucitajIzFajla() {
 		try {
 			JFileChooser fc = new JFileChooser();
@@ -105,9 +98,8 @@ public class GUIKontroler {
 		}
 	}
 	
-	// baca prazan izuzetak
 	public static void unesiKurs(String naziv, String skraceniNaziv, int sifra,
-			double kupovni, double srednji, double prodajni) {
+			String kupovni, String srednji, String prodajni) {
 		try {
 			Valuta valuta = new Valuta();
 
@@ -115,9 +107,9 @@ public class GUIKontroler {
 			valuta.setNaziv(naziv);
 			valuta.setSkraceniNaziv(skraceniNaziv);
 			valuta.setSifra(sifra);
-			valuta.setProdajni(prodajni);
-			valuta.setKupovni(kupovni);
-			valuta.setSrednji(srednji);
+			valuta.setProdajni(Double.parseDouble(prodajni));
+			valuta.setKupovni(Double.parseDouble(kupovni));
+			valuta.setSrednji(Double.parseDouble(srednji));
 			
 			// Dodavanje valute u kursnu listu
 			menjacnica.dodajValutu(valuta);
@@ -130,7 +122,6 @@ public class GUIKontroler {
 		}
 	}
 	
-	// sto znam ja
 	public static void obrisiValutu(Valuta valuta) {
 		try{
 			menjacnica.obrisiValutu(valuta);
@@ -142,7 +133,6 @@ public class GUIKontroler {
 		}
 	}
 	
-	// sto znam ja
 	public static void izvrsiZamenu(Valuta valuta, boolean prodaja, double iznos){
 		try{
 			double konacniIznos = 

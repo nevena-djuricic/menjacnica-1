@@ -28,7 +28,6 @@ import java.awt.Component;
 
 import javax.swing.JList;
 
-import menjacnica.Menjacnica;
 import menjacnica.Valuta;
 
 import java.awt.event.ActionListener;
@@ -57,7 +56,6 @@ public class MenjacnicaGUI extends JFrame {
 	private static JList list;
 	
 	//klasa na logickom nivou
-	protected Menjacnica sistem;
 	private static JPopupMenu popupMenu;
 	private static JMenuItem mntmDodajKurs;
 	private static JMenuItem mntmObrisiKurs;
@@ -85,7 +83,6 @@ public class MenjacnicaGUI extends JFrame {
 		contentPane.add(getScrollPane(), BorderLayout.CENTER);
 		contentPane.add(getPanel(), BorderLayout.EAST);
 		
-		sistem = new Menjacnica();
 	}
 
 	private JScrollPane getScrollPane() {
@@ -226,9 +223,8 @@ public class MenjacnicaGUI extends JFrame {
 		return list;
 	}
 	
-	@SuppressWarnings("unchecked")
-	protected void prikaziSveValute(LinkedList<Valuta> valuta) {
-		list.setListData(sistem.vratiKursnuListu().toArray());
+	protected void prikaziSveValute(LinkedList<Valuta> kursnaLista) {
+		list.setListData(kursnaLista.toArray());
 	}
 	
 	private static JPopupMenu getPopupMenu() {

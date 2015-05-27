@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 
+@SuppressWarnings("serial")
 public class ObrisiKursGUI extends JFrame {
 
 	private JPanel contentPane;
@@ -38,7 +39,6 @@ public class ObrisiKursGUI extends JFrame {
 	private JCheckBox chckbxZaistaObrisiKurs;
 	private JLabel label;
 	
-	private MenjacnicaGUI glavniProzor;
 	private Valuta valuta;
 
 	/**
@@ -72,7 +72,6 @@ public class ObrisiKursGUI extends JFrame {
 		contentPane.add(getBtnOdus());
 		
 		//podesavanje
-		this.glavniProzor = glavniProzor;
 		this.valuta = valuta;
 		
 		prikaziValutu();

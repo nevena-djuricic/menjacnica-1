@@ -10,6 +10,8 @@ import menjacnica.sistemskeoperacije.SOUcitajIzFajla;
 
 public class Menjacnica implements MenjacnicaInterface{
 	
+	private LinkedList<Valuta> kursnaLista = new LinkedList<Valuta>();
+	
 	@Override
 	public void dodajValutu(Valuta valuta) {
 		SODodajValutu.dodajValutu(valuta, kursnaLista);	
@@ -39,7 +41,5 @@ public class Menjacnica implements MenjacnicaInterface{
 	public void sacuvajUFajl(String putanja) {
 		SOSacuvajUFajl.sacuvajUFajl(putanja, kursnaLista);
 	}
-
-	private LinkedList<Valuta> kursnaLista = new LinkedList<Valuta>();
 
 }
