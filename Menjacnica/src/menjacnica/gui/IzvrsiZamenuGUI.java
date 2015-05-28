@@ -172,6 +172,7 @@ public class IzvrsiZamenuGUI extends JFrame {
 			btnOdustani.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					boolean prodaja = false;
+					
 					if (buttonGroup.getSelection().equals("Kupovina")) {
 						prodaja = true;
 					}

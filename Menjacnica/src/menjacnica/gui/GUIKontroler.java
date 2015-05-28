@@ -6,6 +6,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import menjacnica.Menjacnica;
 import menjacnica.MenjacnicaInterface;
 import menjacnica.Valuta;
 
@@ -19,6 +20,7 @@ public class GUIKontroler {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					menjacnica = new Menjacnica();
 					glavniProzor = new MenjacnicaGUI();
 					glavniProzor.setVisible(true);
 					glavniProzor.setLocationRelativeTo(null);
@@ -138,7 +140,7 @@ public class GUIKontroler {
 			double konacniIznos = 
 					menjacnica.izvrsiTransakciju(valuta, prodaja, iznos);
 
-			izvrsiZamenuProzor.textFieldKonacniIznos.setText(""+konacniIznos);
+			izvrsiZamenuProzor.textFieldKonacniIznos.setText("" + konacniIznos);
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(glavniProzor.getContentPane(), e1.getMessage(),
 					"Greska", JOptionPane.ERROR_MESSAGE);
